@@ -5,10 +5,12 @@ class LabelsManager{
         this.service = null;
     }
 
+    // Initialize the manager with the Gmail API service
     initializeManager(service){
         this.service = service;
     }
 
+    // Check if the manager is initialized
     checkIfInitialized(){
         if(!this.service){
             throw new Error('LabelsManager not initialized');
@@ -17,6 +19,7 @@ class LabelsManager{
         return true;
     }
 
+    // Check if the label exists
     async labelExists(labelName) {
         this.checkIfInitialized();
 
@@ -30,6 +33,7 @@ class LabelsManager{
         return {labelExists, labelsResponse};
     }
 
+    // Create a new label
     async createLabel(labelName) {
         this.checkIfInitialized();
         return await this.service.users.labels.create({
@@ -42,6 +46,7 @@ class LabelsManager{
         });
     }
 
+    // Get the label ID for the label we want to add to the message
     getExistingLabel(labels){
         return labels.find(label => label.name === labelName)
     }
