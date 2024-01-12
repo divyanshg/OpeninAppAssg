@@ -1,0 +1,16 @@
+{
+  "name": "OpeninApp",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:dev": "npx nodemon ./src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "dependencies": {
+    "@google-cloud/local-auth": "2.1.0",
+    "googleapis": "105"
+  }
+}
